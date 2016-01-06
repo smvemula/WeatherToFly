@@ -2,7 +2,7 @@
 //  MasterViewController.swift
 //  ComplexApp
 //
-//  Created by Manoj Vemula on 1/5/16.
+//  Created by Manoj Vemula  on 1/5/16.
 //  Copyright © 2016 Manoj Vemula. All rights reserved.
 //
 
