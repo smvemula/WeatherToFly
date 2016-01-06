@@ -27,6 +27,9 @@
 		8D387B011C3C636D00948E31 /* MyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AFF1C3C636D00948E31 /* MyNetwork.swift */; };
 		8D387B061C3C6A6200948E31 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387B051C3C6A6200948E31 /* Observation.swift */; };
 		8D387B081C3C860000948E31 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387B071C3C860000948E31 /* MasterViewController.swift */; };
+		8DBEFF241C3CAC4600206119 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEFF231C3CAC4600206119 /* UserLocation.swift */; };
+		8DBEFF261C3CAF2800206119 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBEFF251C3CAF2800206119 /* MapKit.framework */; };
+		8DBEFF281C3CAF6900206119 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBEFF271C3CAF6900206119 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		8D387AFF1C3C636D00948E31 /* MyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNetwork.swift; sourceTree = "<group>"; };
 		8D387B051C3C6A6200948E31 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		8D387B071C3C860000948E31 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		8DBEFF231C3CAC4600206119 /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		8DBEFF251C3CAF2800206119 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8DBEFF271C3CAF6900206119 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBEFF281C3CAF6900206119 /* CoreLocation.framework in Frameworks */,
+				8DBEFF261C3CAF2800206119 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +111,8 @@
 		8D387AB21C3C631700948E31 = {
 			isa = PBXGroup;
 			children = (
+				8DBEFF271C3CAF6900206119 /* CoreLocation.framework */,
+				8DBEFF251C3CAF2800206119 /* MapKit.framework */,
 				8D387ABD1C3C631700948E31 /* WeatherToFly */,
 				8D387AD21C3C631700948E31 /* WeatherToFlyTests */,
 				8D387ADD1C3C631700948E31 /* WeatherToFlyUITests */,
@@ -129,6 +139,7 @@
 				8D387ABE1C3C631700948E31 /* AppDelegate.swift */,
 				8D387AC01C3C631700948E31 /* ViewController.swift */,
 				8D387B071C3C860000948E31 /* MasterViewController.swift */,
+				8DBEFF231C3CAC4600206119 /* UserLocation.swift */,
 				8D387AC21C3C631700948E31 /* Main.storyboard */,
 				8D387AC51C3C631700948E31 /* Assets.xcassets */,
 				8D387AC71C3C631700948E31 /* LaunchScreen.storyboard */,
@@ -256,6 +267,11 @@
 				TargetAttributes = {
 					8D387ABA1C3C631700948E31 = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8D387ACE1C3C631700948E31 = {
 						CreatedOnToolsVersion = 7.2;
@@ -324,6 +340,7 @@
 				8D387AC11C3C631700948E31 /* ViewController.swift in Sources */,
 				8D387AF51C3C635D00948E31 /* NSJSONSerializationExtension.swift in Sources */,
 				8D387B011C3C636D00948E31 /* MyNetwork.swift in Sources */,
+				8DBEFF241C3CAC4600206119 /* UserLocation.swift in Sources */,
 				8D387B081C3C860000948E31 /* MasterViewController.swift in Sources */,
 				8D387AFD1C3C635D00948E31 /* DesignHelper.swift in Sources */,
 				8D387AF91C3C635D00948E31 /* ArrayExtension.swift in Sources */,
@@ -560,6 +577,7 @@
 				8D387AE51C3C631700948E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D387AE61C3C631700948E31 /* Build configuration list for PBXNativeTarget "WeatherToFlyTests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +586,7 @@
 				8D387AE81C3C631700948E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D387AE91C3C631700948E31 /* Build configuration list for PBXNativeTarget "WeatherToFlyUITests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +595,7 @@
 				8D387AEB1C3C631700948E31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -24,6 +24,20 @@ class MyAPIs: NSObject {
             }
         })
     }
+    
+    class func getAirportFor(lat: String, long: String, completion: (weather: NSDictionary) -> Void, failure: (failure_code: String, failure_error:String) -> Void) {
+        MyNetwork.instance().requestWithUri("?lat=37.3&lng=-122.0&username=smvemula", httpMethod: HTTPMethod.GET, httpBodyParameters: nil, completion: {(status, content, error) -> Void in
+            if let dict = content as? NSDictionary {
+                if let status = dict["status"] as? NSDictionary {
+                    failure(failure_code: "200", failure_error: "NO RESULTS FOUND")
+                } else if let weatherObservation = dict["weatherObservation"] as? NSDictionary {
+                    completion(weather: weatherObservation)
+                }
+            } else {
+                failure(failure_code: status, failure_error: "")
+            }
+        })
+    }
 }
 
 extension MyAPIs {

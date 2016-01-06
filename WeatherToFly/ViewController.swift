@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import MapKit
+import AddressBookUI
 
 class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
     
     @IBOutlet var weatherInfo : UITextView!
     @IBOutlet var searchBar : UISearchBar!
     @IBOutlet var addButton : UIButton!
+    
+    //constants
+    let kStoreProfileIDKey = "storeProfileID"
+    let kLocationUpdateNotification = "LocationUpdateNotification"
+    let kCoordinate = "Coordinate"
+    
+    
     @IBAction func addToFavorites() {
         if let exists = NSUserDefaults.standardUserDefaults().objectForKey("favorites") as? [NSDictionary] {
             var new = exists
@@ -59,6 +68,19 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
         }
     }
     
+    func dictoObservation(object: NSDictionary) {
+        self.currentDict = object
+        let newWeather = Observation(json: object)
+        NSUserDefaults.standardUserDefaults().setObject(object, forKey: "recent")
+        dispatch_async(dispatch_get_main_queue(), {
+            self.view.stopLoading()
+            self.addButton.hidden = false
+            self.updateAddButtonStatusForDict(object)
+            self.weatherInfo.text = newWeather.getSummary()
+            self.searchBar.text = newWeather.getAirportCode()
+        })
+    }
+    
     @IBAction func refresh() {
         searchBar.endEditing(true)
         if let exists = searchBar.text {
@@ -66,16 +88,7 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 MyAPIs.getWeatherFor(exists, completion: {(object) -> Void in
                     //print(object)
-                    self.currentDict = object
-                    let newWeather = Observation(json: object)
-                    NSUserDefaults.standardUserDefaults().setObject(object, forKey: "recent")
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.view.stopLoading()
-                        self.addButton.hidden = false
-                        self.updateAddButtonStatusForDict(object)
-                        self.weatherInfo.text = newWeather.getSummary()
-                        self.searchBar.text = newWeather.getAirportCode()
-                    })
+                    self.dictoObservation(object)
                     }, failure: { code, message -> Void in
                         print("\(code): \(message)")
                         self.currentDict = nil
@@ -98,6 +111,7 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         self.weatherInfo.font = UIFont(name: "HelveticaNeue", size: 25)!
         self.addButton.hidden = true
+        UserLocation.manager
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -110,6 +124,7 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
             self.addButton.hidden = false
         } else {
             self.searchBar.becomeFirstResponder()
+            self.getUserLocation()
         }
     }
     
@@ -127,6 +142,39 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getUserLocation() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receiveLocationUpdateNotification:", name: kLocationUpdateNotification, object: nil)
+        UserLocation.manager.locationManager.startUpdatingLocation()
+    }
+    
+    func receiveLocationUpdateNotification(notification: NSNotification)
+    {
+        if let aDict = notification.userInfo {
+                NSNotificationCenter.defaultCenter().removeObserver(self, name: kLocationUpdateNotification, object: nil)
+                UserLocation.manager.locationManager.stopUpdatingLocation()
+            if let clLocation = aDict[kCoordinate] as? CLLocation {
+                if let exists = self.searchBar.text {
+                    if exists.utf16.count == 0 {
+                        self.getAirportAsUserLocaton(clLocation)
+                    }
+                } else {
+                    self.getAirportAsUserLocaton(clLocation)
+                }
+            }
+        }
+    }
+    
+    func getAirportAsUserLocaton(clLocation: CLLocation) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        MyAPIs.getAirportFor("\(clLocation.coordinate.latitude)", long: "\(clLocation.coordinate.longitude)", completion: {(weather) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.dictoObservation(weather)
+            })
+            }, failure: {code, message -> Void in
+        })
+        })
     }
 }
 
