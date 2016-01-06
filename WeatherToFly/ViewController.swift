@@ -59,6 +59,7 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
                         self.addButton.hidden = false
                         self.updateAddButtonStatusForDict(object)
                         self.weatherInfo.text = newWeather.getSummary()
+                        self.searchBar.text = newWeather.getAirportCode()
                     })
                     }, failure: { code, message -> Void in
                         print("\(code): \(message)")
