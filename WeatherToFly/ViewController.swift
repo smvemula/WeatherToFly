@@ -36,7 +36,22 @@ class ViewController: UIViewController, UISearchBarDelegate, NewDelegate {
     
     func updateAddButtonStatusForDict(object: NSDictionary) {
         if let exists = NSUserDefaults.standardUserDefaults().objectForKey("favorites") as? [NSDictionary] {
-            if exists.contains(object) {
+            var found = false
+            var new = exists
+            if let check = object["ICAO"] as? String {
+                for each in exists {
+                    if let id = each["ICAO"] as? String {
+                        if check == id {
+                            found = true
+                            //Update weather info
+                            new.removeObject(&new, object: each)
+                            new.append(object)
+                        }
+                    }
+                }
+            }
+            if found {
+                NSUserDefaults.standardUserDefaults().setObject(new, forKey: "favorites")
                 self.addButton.setImage(UIImage(named: "plus")?.tintWithColor(UIColor.greenColor()), forState: UIControlState.Normal)
             } else {
                 self.addButton.setImage(UIImage(named: "plus")?.tintWithColor(UIColor.grayColor()), forState: UIControlState.Normal)
