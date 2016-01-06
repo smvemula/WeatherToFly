@@ -11,7 +11,7 @@ import Foundation
 
 class DesignHelper {
         
-        class func getTitleAttributedStringforTitle(title: String) -> NSAttributedString {
+ /*       class func getTitleAttributedStringforTitle(title: String) -> NSAttributedString {
             return DesignHelper.getTitleAttributedStringforTitle(title, size: 18)
         }
         
@@ -57,7 +57,6 @@ class DesignHelper {
     class func defaultLight(size:CGFloat)->(UIFont){
         return UIFont(name: "HelveticaNeue-Light", size: size)!
     }
-    /*
     po [UIFont fontNamesForFamilyName:@"Helvetica Neue"]
     
     (id) $1 = 0x079d8670 <__NSCFArray 0x79d8670>(

@@ -52,7 +52,7 @@ extension UIView {
         
         self.stopLoading()
         dispatch_async(dispatch_get_main_queue(), {let loadingView = UIView(frame: self.bounds)
-            loadingView.backgroundColor = UIColor.footballColor.colorWithAlphaComponent(alpha)
+            loadingView.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(alpha)
             loadingView.tag = 9999
             
             let indicator = UIActivityIndicatorView(activityIndicatorStyle: indicatorStyle)
@@ -69,12 +69,7 @@ extension UIView {
             if let _ = self as? UITabBar {
                 
             } else {
-                let spinner = FeSpinnerTenDot(view: loadingView, withBlur: false)
-                spinner.titleLabelText = "Loading"// ["Loading","Loading","Talking longer than normal","Complete"]
-                spinner.fontTitleLabel = UIFont(name: "Helvetica-Neue", size: 25)
-                spinner.show()
-                loadingView.addSubview(spinner)
-                //loadingView.addSubview(indicator)
+                loadingView.addSubview(indicator)
             }
             
             

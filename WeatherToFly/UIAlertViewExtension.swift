@@ -9,43 +9,27 @@
 import Foundation
 import UIKit
 
-extension UIAlertView {
+extension UIAlertController {
     class func showAlertViewNetworkIssues(vc: UIViewController) {
-        self.showAlertView(NSLocalizedString("Error !!", comment: "Error !!"), text: NSLocalizedString("Network error.", comment: "Network error."), vc: vc)
+        self.showAlertView(NSLocalizedString("Error !!", comment: "Error !!"), text: NSLocalizedString("Network error.", comment: "Network error."), actionButtonBlock: nil, vc: vc)
     }
     
     class func showWorkInProgress(vc: UIViewController) {
-        self.showAlertView("!!!Work in Progress!!!", text: "STAY TUNED!", vc: vc)
+        self.showAlertView("!!!Work in Progress!!!", text: "STAY TUNED!", actionButtonBlock: nil, vc: vc)
     }
     
-    class func showAlertView(title: String, text: String, vc: UIViewController) {
+    class func showAlertView(title: String, text: String, actionButtonBlock: (() -> ())?, vc: UIViewController) {
         if UIApplication.sharedApplication().applicationState == UIApplicationState.Active {
             let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: { action in
+                if let exists = actionButtonBlock {
+                    exists()
+                }
             }))
             vc.presentViewController(alert, animated: true, completion: nil)
         } else {
             print("\(title) : \(text)")
         }
-    }
-    
-    class func showShareAlertIn(vc: UIViewController) {
-        let alert = UIAlertController(title: "Share & Earn", message: "You can earn cash by sharing Bet On app URL to your friends or Inviting new friends to Bet On!.", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        alert.addAction(cancel)
-        let share = UIAlertAction(title: "Share", style: UIAlertActionStyle.Default, handler: {(alertAction) -> Void in
-            MyNetwork.instance().shouldShare = true
-            if let tab = vc.presentingViewController as? UITabBarController {
-                vc.dismissViewControllerAnimated(true, completion: {
-                    tab.selectedIndex = 2
-                })
-            } else if let tab = vc.tabBarController {
-                tab.selectedIndex = 2
-                
-            }
-        })
-        alert.addAction(share)
-        vc.presentViewController(alert, animated: true, completion: nil)
     }
     
     class func showAlertView(title: String, message: String, cancelButtonTitle: String, actionButtonTitle: String, actionButtonBlock: () -> (), vc: UIViewController) {
@@ -56,40 +40,5 @@ extension UIAlertView {
         alert.addAction(UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.Cancel, handler: { action in
         }))
         vc.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    class func notifyImportantEvents(title: String, message: String, vc: UIViewController) {
-        if UIApplication.sharedApplication().applicationState == UIApplicationState.Active {
-            UIAlertView.showAlertView(title, text: message, vc: vc)
-        } else {
-            let notification = UILocalNotification() // create a new reminder notification
-            notification.alertTitle = title
-            notification.alertBody = message
-            notification.fireDate = NSDate().dateByAddingTimeInterval(0)
-            notification.soundName = UILocalNotificationDefaultSoundName // play default soundr
-            notification.category = "Feedback"
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        }
-    }
-    
-    class func showAlertView(title: String, text: String) {
-        if UIApplication.sharedApplication().applicationState == UIApplicationState.Active {
-            let alertTitle = NSLocalizedString(title, comment: title)
-            let alertText = NSLocalizedString(text, comment: text)
-            let alertView = UIAlertView(title: alertTitle, message: NSLocalizedString(alertText, comment: alertText), delegate: nil, cancelButtonTitle:NSLocalizedString("OK", comment: "OK"))
-            alertView.show()
-        } else {
-            print("\(title) : \(text)")
-        }
-    }
-    
-    
-    class func showTextOnlyOnViewController(vc: UIViewController, message: String) {
-        let hud = MBProgressHUD.showHUDAddedTo(vc.view, animated: true)
-        hud.mode = MBProgressHUDMode.Text
-        hud.labelText = message
-        hud.margin = 10.0
-        hud.removeFromSuperViewOnHide = true
-        hud.hide(true, afterDelay: 2.0)
     }
 }

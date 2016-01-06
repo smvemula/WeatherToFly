@@ -59,11 +59,6 @@ extension UIColor
     }
     
     class var footballColor : UIColor {
-        if let name = NSUserDefaults.standardUserDefaults().objectForKey("favorite") as? String {
-            if let team = NFLTeam(rawValue: name) {
-                return team.textColor()
-            }
-        }
         return UIColor.colorWithHexString("#C42032", andAlpha: 1)
         //BA4616
         //663300

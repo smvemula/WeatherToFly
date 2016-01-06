@@ -14,6 +14,19 @@
 		8D387AC91C3C631700948E31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D387AC71C3C631700948E31 /* LaunchScreen.storyboard */; };
 		8D387AD41C3C631700948E31 /* WeatherToFlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AD31C3C631700948E31 /* WeatherToFlyTests.swift */; };
 		8D387ADF1C3C631700948E31 /* WeatherToFlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387ADE1C3C631700948E31 /* WeatherToFlyUITests.swift */; };
+		8D387AF51C3C635D00948E31 /* NSJSONSerializationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AEC1C3C635D00948E31 /* NSJSONSerializationExtension.swift */; };
+		8D387AF61C3C635D00948E31 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AED1C3C635D00948E31 /* NSDictionaryExtension.swift */; };
+		8D387AF71C3C635D00948E31 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AEE1C3C635D00948E31 /* UIViewExtension.swift */; };
+		8D387AF81C3C635D00948E31 /* UIAlertViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AEF1C3C635D00948E31 /* UIAlertViewExtension.swift */; };
+		8D387AF91C3C635D00948E31 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AF01C3C635D00948E31 /* ArrayExtension.swift */; };
+		8D387AFA1C3C635D00948E31 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AF11C3C635D00948E31 /* UIImageExtension.swift */; };
+		8D387AFB1C3C635D00948E31 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AF21C3C635D00948E31 /* NSDateExtension.swift */; };
+		8D387AFC1C3C635D00948E31 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AF31C3C635D00948E31 /* UIColorExtension.swift */; };
+		8D387AFD1C3C635D00948E31 /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AF41C3C635D00948E31 /* DesignHelper.swift */; };
+		8D387B001C3C636D00948E31 /* MyAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AFE1C3C636D00948E31 /* MyAPIs.swift */; };
+		8D387B011C3C636D00948E31 /* MyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387AFF1C3C636D00948E31 /* MyNetwork.swift */; };
+		8D387B061C3C6A6200948E31 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387B051C3C6A6200948E31 /* Observation.swift */; };
+		8D387B081C3C860000948E31 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D387B071C3C860000948E31 /* MasterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +60,19 @@
 		8D387ADA1C3C631700948E31 /* WeatherToFlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherToFlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D387ADE1C3C631700948E31 /* WeatherToFlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherToFlyUITests.swift; sourceTree = "<group>"; };
 		8D387AE01C3C631700948E31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D387AEC1C3C635D00948E31 /* NSJSONSerializationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSJSONSerializationExtension.swift; sourceTree = "<group>"; };
+		8D387AED1C3C635D00948E31 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
+		8D387AEE1C3C635D00948E31 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		8D387AEF1C3C635D00948E31 /* UIAlertViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertViewExtension.swift; sourceTree = "<group>"; };
+		8D387AF01C3C635D00948E31 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		8D387AF11C3C635D00948E31 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		8D387AF21C3C635D00948E31 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		8D387AF31C3C635D00948E31 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8D387AF41C3C635D00948E31 /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
+		8D387AFE1C3C636D00948E31 /* MyAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIs.swift; sourceTree = "<group>"; };
+		8D387AFF1C3C636D00948E31 /* MyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNetwork.swift; sourceTree = "<group>"; };
+		8D387B051C3C6A6200948E31 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
+		8D387B071C3C860000948E31 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +123,12 @@
 		8D387ABD1C3C631700948E31 /* WeatherToFly */ = {
 			isa = PBXGroup;
 			children = (
+				8D387B041C3C6A4800948E31 /* Model */,
+				8D387B031C3C639700948E31 /* Network */,
+				8D387B021C3C638F00948E31 /* Extenstions */,
 				8D387ABE1C3C631700948E31 /* AppDelegate.swift */,
 				8D387AC01C3C631700948E31 /* ViewController.swift */,
+				8D387B071C3C860000948E31 /* MasterViewController.swift */,
 				8D387AC21C3C631700948E31 /* Main.storyboard */,
 				8D387AC51C3C631700948E31 /* Assets.xcassets */,
 				8D387AC71C3C631700948E31 /* LaunchScreen.storyboard */,
@@ -123,6 +153,39 @@
 				8D387AE01C3C631700948E31 /* Info.plist */,
 			);
 			path = WeatherToFlyUITests;
+			sourceTree = "<group>";
+		};
+		8D387B021C3C638F00948E31 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+				8D387AEC1C3C635D00948E31 /* NSJSONSerializationExtension.swift */,
+				8D387AED1C3C635D00948E31 /* NSDictionaryExtension.swift */,
+				8D387AEE1C3C635D00948E31 /* UIViewExtension.swift */,
+				8D387AEF1C3C635D00948E31 /* UIAlertViewExtension.swift */,
+				8D387AF01C3C635D00948E31 /* ArrayExtension.swift */,
+				8D387AF11C3C635D00948E31 /* UIImageExtension.swift */,
+				8D387AF21C3C635D00948E31 /* NSDateExtension.swift */,
+				8D387AF31C3C635D00948E31 /* UIColorExtension.swift */,
+				8D387AF41C3C635D00948E31 /* DesignHelper.swift */,
+			);
+			name = Extenstions;
+			sourceTree = "<group>";
+		};
+		8D387B031C3C639700948E31 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8D387AFE1C3C636D00948E31 /* MyAPIs.swift */,
+				8D387AFF1C3C636D00948E31 /* MyNetwork.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		8D387B041C3C6A4800948E31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D387B051C3C6A6200948E31 /* Observation.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +319,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D387AF71C3C635D00948E31 /* UIViewExtension.swift in Sources */,
+				8D387AF81C3C635D00948E31 /* UIAlertViewExtension.swift in Sources */,
 				8D387AC11C3C631700948E31 /* ViewController.swift in Sources */,
+				8D387AF51C3C635D00948E31 /* NSJSONSerializationExtension.swift in Sources */,
+				8D387B011C3C636D00948E31 /* MyNetwork.swift in Sources */,
+				8D387B081C3C860000948E31 /* MasterViewController.swift in Sources */,
+				8D387AFD1C3C635D00948E31 /* DesignHelper.swift in Sources */,
+				8D387AF91C3C635D00948E31 /* ArrayExtension.swift in Sources */,
+				8D387AF61C3C635D00948E31 /* NSDictionaryExtension.swift in Sources */,
+				8D387AFB1C3C635D00948E31 /* NSDateExtension.swift in Sources */,
+				8D387AFC1C3C635D00948E31 /* UIColorExtension.swift in Sources */,
+				8D387B061C3C6A6200948E31 /* Observation.swift in Sources */,
 				8D387ABF1C3C631700948E31 /* AppDelegate.swift in Sources */,
+				8D387B001C3C636D00948E31 /* MyAPIs.swift in Sources */,
+				8D387AFA1C3C635D00948E31 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
